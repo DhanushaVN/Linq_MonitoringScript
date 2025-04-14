@@ -1,0 +1,75 @@
+{
+  "title": "System Metrics",
+  "schemaVersion": 27,
+  "version": 1,
+  "timezone": "browser",
+  "panels": [
+    {
+      "title": "CPU Usage",
+      "type": "timeseries",
+      "datasource": "InfluxDB",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 0 },
+      "id": 1,
+      "targets": [
+        {
+          "refId": "A",
+          "measurement": "system_metrics",
+          "select": [
+            [
+              { "type": "field", "params": ["cpu"] },
+              { "type": "mean", "params": [] }
+            ]
+          ],
+          "groupBy": [
+            { "type": "time", "params": ["$__interval"] }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Memory Usage",
+      "type": "timeseries",
+      "datasource": "InfluxDB",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 8 },
+      "id": 2,
+      "targets": [
+        {
+          "refId": "B",
+          "measurement": "system_metrics",
+          "select": [
+            [
+              { "type": "field", "params": ["memory"] },
+              { "type": "mean", "params": [] }
+            ]
+          ],
+          "groupBy": [
+            { "type": "time", "params": ["$__interval"] }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Disk Usage",
+      "type": "timeseries",
+      "datasource": "InfluxDB",
+      "gridPos": { "h": 8, "w": 24, "x": 0, "y": 16 },
+      "id": 3,
+      "targets": [
+        {
+          "refId": "C",
+          "measurement": "system_metrics",
+          "select": [
+            [
+              { "type": "field", "params": ["disk"] },
+              { "type": "mean", "params": [] }
+            ]
+          ],
+          "groupBy": [
+            { "type": "time", "params": ["$__interval"] }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
